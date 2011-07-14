@@ -15,12 +15,14 @@
 #
 
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_eu.mk)
+PRODUCT_COPY_FILES += \
+	device/motorola/motoqrty/gps.conf:system/etc/gps.conf \
+	device/motorola/motoqrty/spn-conf.xml:system/etc/spn-conf.xml
 
 ## (1) First, the most specific values, i.e. the aspects that are specific to GSM
 
 PRODUCT_COPY_FILES += \
-    device/motorola/umts_sholes/init.mapphone_umts.rc:root/init.mapphone_umts.rc
+    device/motorola/motoqrty/init.mapphone_umts.rc:root/init.mapphone_umts.rc
 
 ## (2) Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/motorola/umts_sholes/umts_sholes-vendor.mk)
@@ -113,54 +115,54 @@ PRODUCT_PACKAGES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Passion uses high-density artwork where available
-PRODUCT_LOCALES += hdpi
+PRODUCT_LOCALES += ko_KR
 
 PRODUCT_COPY_FILES += \
-    device/motorola/umts_sholes/vold.fstab:system/etc/vold.fstab \
-    device/motorola/umts_sholes/prebuilt/default.prop:system/default.prop \
-    device/motorola/umts_sholes/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    device/motorola/umts_sholes/prebuilt/etc/init.d/10overclock:/system/etc/init.d/10overclock \
-    device/motorola/umts_sholes/prebuilt/etc/init.d/07app2ext:/system/etc/init.d/07app2ext \
-    device/motorola/umts_sholes/prebuilt/etc/init.d/60autoboot_or:/system/etc/init.d/60autoboot_or \
-    device/motorola/umts_sholes/prebuilt/etc/location.cfg:/system/etc/location.cfg \
-    device/motorola/umts_sholes/prebuilt/etc/rootfs/default.prop:/system/etc/rootfs/default.prop \
-    device/motorola/umts_sholes/prebuilt/etc/rootfs/init.rc:/system/etc/rootfs/init.rc \
-    device/motorola/umts_sholes/prebuilt/etc/rootfs/init.mapphone_umts.rc:/system/etc/rootfs/init.mapphone_umts.rc \
-    device/motorola/umts_sholes/prebuilt/app/Toggle2G.apk:/system/app/Toggle2G.apk \
-    device/motorola/umts_sholes/prebuilt/bin/2nd-init:/system/bin/2nd-init \
-    device/motorola/umts_sholes/prebuilt/bin/init_prep_keypad.sh:/system/bin/init_prep_keypad.sh \
-    device/motorola/umts_sholes/prebuilt/bin/init_mount_logger.sh:/system/bin/init_mount_logger.sh \
-    device/motorola/umts_sholes/prebuilt/bin/sh_hijack.sh:/system/bin/sh_hijack.sh \
-    device/motorola/umts_sholes/prebuilt/bin/tcmd:/system/bin/tcmd \
-    device/motorola/umts_sholes/prebuilt/usr/keychars/sholesp2a-keypad-qwerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-qwerty.kcm.bin \
-    device/motorola/umts_sholes/prebuilt/usr/keychars/sholesp2a-keypad-euro_qwerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-euro_qwerty.kcm.bin \
-    device/motorola/umts_sholes/prebuilt/usr/keychars/sholesp2a-keypad-qwertz.kcm.bin:/system/usr/keychars/sholesp2a-keypad-qwertz.kcm.bin \
-    device/motorola/umts_sholes/prebuilt/usr/keychars/sholesp2a-keypad-azerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-azerty.kcm.bin \
-    device/motorola/umts_sholes/prebuilt/usr/keychars/sholesp2a-keypad-swe_qwerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-swe_qwerty.kcm.bin \
-    device/motorola/umts_sholes/prebuilt/lib/libgki.so:/system/lib/libgki.so \
-    device/motorola/umts_sholes/prebuilt/lib/modules/symsearch.ko:/system/lib/modules/symsearch.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/dsifix.ko:/system/lib/modules/dsifix.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/slow-work.ko:/system/lib/modules/slow-work.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/xt_multiport.ko:/system/lib/modules/xt_multiport.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/overclock.ko:/system/lib/modules/overclock.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/cpufreq_interactive.ko:/system/lib/modules/cpufreq_interactive.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/cpufreq_smartass.ko:/system/lib/modules/cpufreq_smartass.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/cpufreq_conservative.ko:/system/lib/modules/cpufreq_conservative.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/cpufreq_stats.ko:/system/lib/modules/cpufreq_stats.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/ext2.ko:/system/lib/modules/ext2.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/jbd.ko:/system/lib/modules/jbd.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/ext3.ko:/system/lib/modules/ext3.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/jbd2.ko:/system/lib/modules/jbd2.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/ext4.ko:/system/lib/modules/ext4.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/tun.ko:/system/lib/modules/tun.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/cifs.ko:/system/lib/modules/cifs.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/nls_utf8.ko:/system/lib/modules/nls_utf8.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/lockd.ko:/system/lib/modules/lockd.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/auth_rpcgss.ko:/system/lib/modules/auth_rpcgss.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/rpcsec_gss_krb5.ko:/system/lib/modules/rpcsec_gss_krb5.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/sunrpc.ko:/system/lib/modules/sunrpc.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/nfs.ko:/system/lib/modules/nfs.ko \
-    device/motorola/umts_sholes/prebuilt/lib/modules/qtouch_num.ko:/system/lib/modules/qtouch_num.ko
+    device/motorola/motoqrty/vold.fstab:system/etc/vold.fstab \
+    device/motorola/motoqrty/prebuilt/default.prop:system/default.prop \
+    device/motorola/motoqrty/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
+    device/motorola/motoqrty/prebuilt/etc/init.d/10overclock:/system/etc/init.d/10overclock \
+    device/motorola/motoqrty/prebuilt/etc/init.d/07app2ext:/system/etc/init.d/07app2ext \
+    device/motorola/motoqrty/prebuilt/etc/init.d/60autoboot_or:/system/etc/init.d/60autoboot_or \
+    device/motorola/motoqrty/prebuilt/etc/location.cfg:/system/etc/location.cfg \
+    device/motorola/motoqrty/prebuilt/etc/rootfs/default.prop:/system/etc/rootfs/default.prop \
+    device/motorola/motoqrty/prebuilt/etc/rootfs/init.rc:/system/etc/rootfs/init.rc \
+    device/motorola/motoqrty/prebuilt/etc/rootfs/init.mapphone_umts.rc:/system/etc/rootfs/init.mapphone_umts.rc \
+    device/motorola/motoqrty/prebuilt/app/Toggle2G.apk:/system/app/Toggle2G.apk \
+    device/motorola/motoqrty/prebuilt/bin/2nd-init:/system/bin/2nd-init \
+    device/motorola/motoqrty/prebuilt/bin/init_prep_keypad.sh:/system/bin/init_prep_keypad.sh \
+    device/motorola/motoqrty/prebuilt/bin/init_mount_logger.sh:/system/bin/init_mount_logger.sh \
+    device/motorola/motoqrty/prebuilt/bin/sh_hijack.sh:/system/bin/sh_hijack.sh \
+    device/motorola/motoqrty/prebuilt/bin/tcmd:/system/bin/tcmd \
+    device/motorola/motoqrty/prebuilt/usr/keychars/sholesp2a-keypad-qwerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-qwerty.kcm.bin \
+    device/motorola/motoqrty/prebuilt/usr/keychars/sholesp2a-keypad-euro_qwerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-euro_qwerty.kcm.bin \
+    device/motorola/motoqrty/prebuilt/usr/keychars/sholesp2a-keypad-qwertz.kcm.bin:/system/usr/keychars/sholesp2a-keypad-qwertz.kcm.bin \
+    device/motorola/motoqrty/prebuilt/usr/keychars/sholesp2a-keypad-azerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-azerty.kcm.bin \
+    device/motorola/motoqrty/prebuilt/usr/keychars/sholesp2a-keypad-swe_qwerty.kcm.bin:/system/usr/keychars/sholesp2a-keypad-swe_qwerty.kcm.bin \
+    device/motorola/motoqrty/prebuilt/lib/libgki.so:/system/lib/libgki.so \
+    device/motorola/motoqrty/prebuilt/lib/modules/symsearch.ko:/system/lib/modules/symsearch.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/dsifix.ko:/system/lib/modules/dsifix.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/slow-work.ko:/system/lib/modules/slow-work.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/xt_multiport.ko:/system/lib/modules/xt_multiport.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/overclock.ko:/system/lib/modules/overclock.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/cpufreq_interactive.ko:/system/lib/modules/cpufreq_interactive.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/cpufreq_smartass.ko:/system/lib/modules/cpufreq_smartass.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/cpufreq_conservative.ko:/system/lib/modules/cpufreq_conservative.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/cpufreq_stats.ko:/system/lib/modules/cpufreq_stats.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/ext2.ko:/system/lib/modules/ext2.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/jbd.ko:/system/lib/modules/jbd.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/ext3.ko:/system/lib/modules/ext3.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/jbd2.ko:/system/lib/modules/jbd2.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/ext4.ko:/system/lib/modules/ext4.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/tun.ko:/system/lib/modules/tun.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/cifs.ko:/system/lib/modules/cifs.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/nls_utf8.ko:/system/lib/modules/nls_utf8.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/lockd.ko:/system/lib/modules/lockd.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/auth_rpcgss.ko:/system/lib/modules/auth_rpcgss.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/rpcsec_gss_krb5.ko:/system/lib/modules/rpcsec_gss_krb5.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/sunrpc.ko:/system/lib/modules/sunrpc.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/nfs.ko:/system/lib/modules/nfs.ko \
+    device/motorola/motoqrty/prebuilt/lib/modules/qtouch_num.ko:/system/lib/modules/qtouch_num.ko
 
 $(call inherit-product-if-exists, vendor/motorola/umts_sholes/umts_sholes-vendor.mk)
 
@@ -173,5 +175,5 @@ $(call inherit-product-if-exists, vendor/motorola/umts_sholes/umts_sholes-vendor
 $(call inherit-product, build/target/product/full_base.mk)
 
 
-PRODUCT_NAME := umts_sholes
+PRODUCT_NAME := motoqrty
 PRODUCT_DEVICE := umts_sholes

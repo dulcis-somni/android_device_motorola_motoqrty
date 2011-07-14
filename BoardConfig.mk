@@ -76,7 +76,7 @@ BOARD_USES_GPSSHIM := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
-BOARD_EGL_CFG := device/motorola/umts_sholes/egl.cfg
+BOARD_EGL_CFG := device/motorola/motoqrty/egl.cfg
 BOARD_NO_RGBX_8888 := true
 #TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
 

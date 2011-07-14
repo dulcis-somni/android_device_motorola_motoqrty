@@ -1,4 +1,4 @@
-persist.sys.timezone=Europe/Brussels
+persist.sys.timezone=Asia/Seoul
 ro.fota.enable=0
 sms.convert.char.for.latam=0
 net.dns1=8.8.8.8
